@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Completo de Árabe - Fluência em 12 Meses</title>
+    <meta name="description" content="Curso gratuito e completo de árabe com 12 módulos progressivos, exercícios interativos, caligrafia e recursos culturais">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h1>🌙 عربي - Curso de Árabe</h1>
+            </div>
+            <button class="nav__toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav__menu">
+                <li><a href="#home" class="nav__link">Início</a></li>
+                <li><a href="#modulos" class="nav__link">Módulos</a></li>
+                <li><a href="#progresso" class="nav__link">Progresso</a></li>
+                <li><a href="#recursos" class="nav__link">Recursos</a></li>
+                <li><a href="#cultura" class="nav__link">Cultura</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Inicial -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h2>Torne-se fluente em árabe em 12 meses</h2>
+                    <p>Curso completo e gratuito com árabe egípcio, MSA (Árabe Padrão Moderno) e levantino, incluindo cultura, história, música e gastronomia de todos os países árabes.</p>
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number">12</span>
+                            <span class="stat__label">Módulos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">500+</span>
+                            <span class="stat__label">Palavras</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">100%</span>
+                            <span class="stat__label">Gratuito</span>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--lg" onclick="app.iniciarCurso()">
+                        Começar Agora
+                    </button>
+                </div>
+                <div class="hero__visual">
+                    <div class="arabic-text">
+                        <span class="arabic-letter">ا</span>
+                        <span class="arabic-letter">ل</span>
+                        <span class="arabic-letter">ع</span>
+                        <span class="arabic-letter">ر</span>
+                        <span class="arabic-letter">ب</span>
+                        <span class="arabic-letter">ي</span>
+                        <span class="arabic-letter">ة</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barra de Progresso -->
+        <section id="progresso" class="progress-section">
+            <div class="container">
+                <h3>Seu Progresso</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-info">
+                    <span id="progress-text">0% concluído</span>
+                    <span id="progress-modules">0/12 módulos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Módulos -->
+        <section id="modulos" class="modules-section">
+            <div class="container">
+                <h3>Módulos do Curso</h3>
+                <div class="modules-grid" id="modules-grid">
+                    <!-- Módulos serão inseridos dinamicamente via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal de Módulo -->
+        <div class="modal" id="module-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharModal()">&times;</button>
+                <div class="modal__header">
+                    <h3 id="modal-title">Módulo</h3>
+                    <div class="modal__progress">
+                        <div class="modal__progress-bar">
+                            <div class="modal__progress-fill" id="modal-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__body" id="modal-body">
+                    <!-- Conteúdo do módulo será inserido aqui -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Recursos -->
+        <section id="recursos" class="resources-section">
+            <div class="container">
+                <h3>Recursos de Aprendizado</h3>
+                <div class="resources-grid">
+                    <div class="resource-card" onclick="app.abrirFlashcards()">
+                        <div class="resource-icon">🎯</div>
+                        <h4>Flashcards</h4>
+                        <p>Pratique vocabulário com repetição espaçada</p>
+                    </div>
+                    <div class="resource-card" onclick="app.abrirQuiz()">
+                        <div class="resource-icon">🧠</div>
+                        <h4>Quiz Interativo</h4>
+                        <p>Teste seus conhecimentos com feedback instantâneo</p>
+                    </div>
+                    <div class="resource-card" onclick="app.abrirCaligrafia()">
+                        <div class="resource-icon">✍️</div>
+                        <h4>Caligrafia Árabe</h4>
+                        <p>Aprenda a escrever letras e palavras árabes</p>
+                    </div>
+                    <div class="resource-card" onclick="app.abrirDialogo()">
+                        <div class="resource-icon">🗣️</div>
+                        <h4>Diálogos com IA</h4>
+                        <p>Pratique conversação com simulação inteligente</p>
+                    </div>
+                    <div class="resource-card" onclick="app.abrirGlossario()">
+                        <div class="resource-icon">📚</div>
+                        <h4>Glossário</h4>
+                        <p>Dicionário completo português-árabe</p>
+                    </div>
+                    <div class="resource-card" onclick="app.abrirAudioPlayer()">
+                        <div class="resource-icon">🎵</div>
+                        <h4>Áudio & Pronúncia</h4>
+                        <p>Ouça e aprenda a pronúncia correta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultura -->
+        <section id="cultura" class="culture-section">
+            <div class="container">
+                <h3>Cultura Árabe</h3>
+                <div class="culture-tabs">
+                    <button class="culture-tab active" onclick="app.mostrarCultura('paises')">Países</button>
+                    <button class="culture-tab" onclick="app.mostrarCultura('culinaria')">Culinária</button>
+                    <button class="culture-tab" onclick="app.mostrarCultura('musica')">Música</button>
+                    <button class="culture-tab" onclick="app.mostrarCultura('historia')">História</button>
+                    <button class="culture-tab" onclick="app.mostrarCultura('religiao')">Religião</button>
+                </div>
+                <div class="culture-content" id="culture-content">
+                    <!-- Conteúdo cultural será inserido aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Flashcards Modal -->
+        <div class="modal" id="flashcards-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharFlashcards()">&times;</button>
+                <div class="flashcard-container">
+                    <div class="flashcard" id="flashcard" onclick="app.virarCard()">
+                        <div class="flashcard__front">
+                            <div class="flashcard__text" id="flashcard-front-text">مرحباً</div>
+                        </div>
+                        <div class="flashcard__back">
+                            <div class="flashcard__text" id="flashcard-back-text">olá</div>
+                        </div>
+                    </div>
+                    <div class="flashcard-controls">
+                        <button class="btn btn--secondary" onclick="app.cardAnterior()">⬅️ Anterior</button>
+                        <span id="flashcard-counter">1/20</span>
+                        <button class="btn btn--primary" onclick="app.proximoCard()">Próximo ➡️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Modal -->
+        <div class="modal" id="quiz-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharQuiz()">&times;</button>
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <h3>Quiz de Árabe</h3>
+                        <div class="quiz-score">
+                            <span id="quiz-score">0</span> / <span id="quiz-total">0</span>
+                        </div>
+                    </div>
+                    <div class="quiz-question" id="quiz-question">
+                        <h4 id="question-text">Carregando pergunta...</h4>
+                        <div class="quiz-options" id="quiz-options">
+                            <!-- Opções serão inseridas dinamicamente -->
+                        </div>
+                    </div>
+                    <div class="quiz-feedback" id="quiz-feedback">
+                        <!-- Feedback será mostrado aqui -->
+                    </div>
+                    <button class="btn btn--primary" id="next-question-btn" onclick="app.proximaPergunta()" style="display: none;">
+                        Próxima Pergunta
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Caligrafia Modal -->
+        <div class="modal" id="caligrafia-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharCaligrafia()">&times;</button>
+                <div class="caligrafia-container">
+                    <h3>Caligrafia Árabe</h3>
+                    <div class="caligrafia-levels">
+                        <button class="btn btn--secondary" onclick="app.selecionarNivelCaligrafia(1)">Nível 1: Letras</button>
+                        <button class="btn btn--secondary" onclick="app.selecionarNivelCaligrafia(2)">Nível 2: Palavras</button>
+                        <button class="btn btn--secondary" onclick="app.selecionarNivelCaligrafia(3)">Nível 3: Frases</button>
+                        <button class="btn btn--secondary" onclick="app.selecionarNivelCaligrafia(4)">Nível 4: Poemas</button>
+                    </div>
+                    <div class="caligrafia-practice" id="caligrafia-practice">
+                        <div class="caligrafia-example" id="caligrafia-example">
+                            <div class="arabic-display">ا</div>
+                            <div class="caligrafia-name">alif</div>
+                        </div>
+                        <canvas id="caligrafia-canvas" width="400" height="200"></canvas>
+                        <div class="caligrafia-controls">
+                            <button class="btn btn--secondary" onclick="app.limparCanvas()">Limpar</button>
+                            <button class="btn btn--primary" onclick="app.proximaLetra()">Próxima</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diálogo Modal -->
+        <div class="modal" id="dialogo-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharDialogo()">&times;</button>
+                <div class="dialogo-container">
+                    <h3>Diálogo com IA</h3>
+                    <div class="dialogo-chat" id="dialogo-chat">
+                        <!-- Mensagens do chat aparecerão aqui -->
+                    </div>
+                    <div class="dialogo-input">
+                        <input type="text" id="dialogo-input-text" placeholder="Digite sua mensagem em árabe ou português..." class="form-control">
+                        <button class="btn btn--primary" onclick="app.enviarMensagem()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glossário Modal -->
+        <div class="modal" id="glossario-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharGlossario()">&times;</button>
+                <div class="glossario-container">
+                    <h3>Glossário Árabe-Português</h3>
+                    <div class="glossario-search">
+                        <input type="text" id="glossario-search-input" placeholder="Buscar palavra..." class="form-control">
+                        <button class="btn btn--primary" onclick="app.buscarGlossario()">Buscar</button>
+                    </div>
+                    <div class="glossario-results" id="glossario-results">
+                        <!-- Resultados da busca aparecerão aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Player Modal -->
+        <div class="modal" id="audio-modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="app.fecharAudio()">&times;</button>
+                <div class="audio-container">
+                    <h3>Áudio & Pronúncia</h3>
+                    <div class="audio-player">
+                        <div class="audio-word" id="audio-word">مرحباً</div>
+                        <div class="audio-transliteration" id="audio-transliteration">marhaban</div>
+                        <div class="audio-controls">
+                            <button class="btn btn--primary" onclick="app.reproducirAudio()">🔊 Reproduzir</button>
+                            <button class="btn btn--secondary" onclick="app.repetirAudio()">🔁 Repetir</button>
+                        </div>
+                    </div>
+                    <div class="audio-practice">
+                        <h4>Pratique a Pronúncia</h4>
+                        <div class="audio-practice-list" id="audio-practice-list">
+                            <!-- Lista de palavras para praticar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Sobre o Curso</h4>
+                    <p>Curso completo de árabe criado para proporcionar fluência em 12 meses através de metodologia avançada e conteúdo cultural rico.</p>
+                </div>
+                <div class="footer__section">
+                    <h4>Recursos Externos</h4>
+                    <ul>
+                        <li><a href="https://www.aljazeera.com/arabic" target="_blank">Al Jazeera Árabe</a></li>
+                        <li><a href="https://www.youtube.com/user/ArabicPod101" target="_blank">ArabicPod101</a></li>
+                        <li><a href="https://www.memrise.com/courses/english/arabic" target="_blank">Memrise Árabe</a></li>
+                        <li><a href="https://www.bbc.com/arabic" target="_blank">BBC Arabic</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Contato</h4>
+                    <p>Este é um projeto educacional open source. Contribuições são bem-vindas!</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Curso de Árabe. Todos os direitos reservados. Conteúdo educacional gratuito.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
